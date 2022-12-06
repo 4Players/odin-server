@@ -458,7 +458,7 @@ licensee = "622012345"
 
 #### `serial_number`
 
-An optional serial number of the license. Usually, this is the ID of your om-premise hosting subscription project.
+An optional serial number of the license. Usually, this is the ID of your on-premise hosting subscription project.
 
 ```toml
 serial_number = "b0FBTWZ2Rj3OY25uZWtYRlpoekVBUT09"
