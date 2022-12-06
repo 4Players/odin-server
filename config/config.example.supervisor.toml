@@ -1,0 +1,33 @@
+### The verbosity level [0-3] to define how much information should be written to logs.
+verbosity = 1
+
+### The FQDN and port number where the server can be reached from the Internet.
+public_address = "localhost:443"
+
+[supervisor]
+### The full web address of the supervisor to contact and send reports to.
+url = "http://localhost:7000/internal"
+### The time in milliseconds between consecutive reports to the supervisor.
+report_interval = 5_000
+
+[quic]
+### Socket where incomming connections are accepted from.
+binding = "0.0.0.0:4433"
+### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
+certificate_file = "fullchain.pem"
+### The path to a PEM-encoded private key.
+privatekey_file = "privkey.pem"
+
+[http]
+### Socket where incomming connections are accepted from.
+binding = "0.0.0.0:4433"
+### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
+certificate_file = "fullchain.pem"
+### The path to a PEM-encoded private key.
+privatekey_file = "privkey.pem"
+### The port range reserved for WebRTC connections.
+webrtc_ports = { begin = 5000, end = 6000 }
+
+[metrics]
+### Labels that are added to all reported metrics.
+global_labels = { deployment = "test" }
