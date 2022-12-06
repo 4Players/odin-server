@@ -430,11 +430,11 @@ data = ["LicenseValidUntil", "LicenseLicensee", "LicenseSerialNumber", "LicenseI
 
 ### The `[license]` section
 
-The optional `[license]` section is used to indentify the licensee of the ODIN server. This section is used in a separate `license.toml` file.
+The optional `[license]` section is used to identify the licensee of the ODIN server. This section is used in a separate `license.toml` file.
 
 #### `signature` <sub><sup>*Required*</sub></sup>
 
-The signature of the license used to verify its validility.
+The signature of the license used to verify its validity.
 
 ```toml
 signature = ""
@@ -475,7 +475,7 @@ valid_until = 1987-07-05T17:45:00Z
 
 ### The `[internal]` section
 
-The `[limit.peer]` section is used to configure internal settings for debugging.
+The `[internal]` section is used to configure internal settings for debugging.
 
 #### `log_hanging_api_calls`
 
@@ -490,6 +490,7 @@ log_hanging_api_calls = 1_000 # ms
 
 Create a configuration file and use the `grid` executable to start the ODIN server.
 
+
 ### Minimal `config.toml` for Supervised Server
 
 When running the ODIN server in combination with a [gateway][odin-gateway-url], you only need to specify the web address of the supervisor. The server will register with the supervisor and automatically receive recommended settings, which will be used to extend the local `config.toml` file.
@@ -500,6 +501,7 @@ The recommended configuration of the gateway can be defined [here][odin-gateway-
 [supervisor]
 url = "http://localhost:7000/internal"
 ```
+
 
 ### Minimal `config.toml` for Standalone Server
 
@@ -529,15 +531,18 @@ privatekey_file = "privkey.pem"
 
 Contact us through the listed methods below to receive answers to your questions and learn more about ODIN.
 
+
 ### Discord
 
 Join our official Discord server to chat with us directly and become a part of the 4Players ODIN community.
 
 [![Join us on Discord](https://www.4players.io/images/join_discord.png)](https://discord.gg/9yzdJNUGZS)
 
+
 ### Twitter
 
 Have a quick question? Tweet us at [@4PlayersBiz](https://twitter.com/4PlayersBiz) and we’ll help you resolve any issues.
+
 
 ### Email
 

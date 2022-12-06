@@ -8,10 +8,10 @@ public_address = "localhost:443"
 ### The full web address of the supervisor to contact and send reports to.
 url = "http://localhost:7000/internal"
 ### The time in milliseconds between consecutive reports to the supervisor.
-report_interval = 5_000
+report_interval = 5_000 # ms
 
 [quic]
-### Socket where incomming connections are accepted from.
+### The socket where incoming connections are accepted from.
 binding = "0.0.0.0:4433"
 ### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
 certificate_file = "fullchain.pem"
@@ -19,7 +19,7 @@ certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
 
 [http]
-### Socket where incomming connections are accepted from.
+### The socket where incoming connections are accepted from.
 binding = "0.0.0.0:4433"
 ### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
 certificate_file = "fullchain.pem"
@@ -27,7 +27,9 @@ certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
 ### The port range reserved for WebRTC connections.
 webrtc_ports = { begin = 5000, end = 6000 }
+### The list of IP addresses to be offered as candidates.
+webrtc_candidates = ["127.0.0.1", "::1"]
 
 [metrics]
 ### Labels that are added to all reported metrics.
-global_labels = { deployment = "test" }
+global_labels = { deployment = "foo" }
