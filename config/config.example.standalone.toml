@@ -2,7 +2,7 @@
 verbosity = 1
 
 ### The FQDN and port number where the server can be reached from the Internet.
-public_address = "localhost:443"
+public_address = "localhost:4433"
 
 [authorization]
 ### A List of JWKs that are valid for signing tokens.

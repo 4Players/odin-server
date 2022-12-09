@@ -2,7 +2,7 @@
 verbosity = 1
 
 ### The FQDN and port number where the server can be reached from the Internet.
-public_address = "localhost:443"
+public_address = "localhost:4433"
 
 [supervisor]
 ### The full web address of the supervisor to contact and send reports to.
