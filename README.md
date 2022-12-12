@@ -554,4 +554,4 @@ Don’t use Discord or Twitter? Send us an [email](mailto:odin@4players.io) and 
 [prometheus]: https://prometheus.io
 [odin-cli-url]: https://www.npmjs.com/package/@4players/odin-cli
 [odin-gateway-url]: https://github.com/4Players/odin-gateway
-[odin-gateway-config-url]: https://github.com/4Players/odin-gateway/blob/main/gridConfigGenerator.ts#L4
+[odin-gateway-config-url]: https://github.com/4Players/odin-gateway/blob/main/gridConfig.ts
