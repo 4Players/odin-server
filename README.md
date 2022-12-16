@@ -499,7 +499,7 @@ The recommended configuration of the gateway can be defined [here][odin-gateway-
 
 ```toml
 [supervisor]
-url = "http://localhost:7000/internal"
+url = "http://username:password@localhost:7000/internal"
 ```
 
 
