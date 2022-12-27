@@ -1,3 +1,7 @@
 # OS specific files
 .DS_Store
 Thumbs.db
+
+# Server packages
+grid_*.tar.xz
+grid_*.zip

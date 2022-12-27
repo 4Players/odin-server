@@ -1,0 +1,30 @@
+FROM alpine:3.17.0
+
+ENV \
+  GRID_HOME="/var/run/grid" \
+  PATH="${PATH}:/opt/grid"
+
+ADD --chown=0:0 grid_x86_64-unknown-linux-musl.tar.xz /opt/grid
+ADD --chown=0:0 entrypoint.sh /usr/local/bin
+
+RUN \
+  set -eux; \
+  apk add --no-cache --no-progress ca-certificates curl libstdc++ libssl1.1; \
+  addgroup -g 1000 grid; \
+  adduser -Ss /bin/false -u 1000 -G grid -Hh ${GRID_HOME} grid; \
+  install -d -o grid -g grid -m 775 ${GRID_HOME}; \
+  chmod +x /usr/local/bin/entrypoint.sh; \
+  rm -rf /var/cache/apk/*; \
+  grid --version
+
+USER grid
+WORKDIR ${GRID_HOME}
+
+EXPOSE \
+  4433/tcp \
+  5000-6000/udp \
+  4433/udp \
+  9000/tcp
+
+ENTRYPOINT [ "entrypoint.sh" ]
+CMD [ "grid" ]
