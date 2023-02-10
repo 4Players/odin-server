@@ -1,6 +1,6 @@
 # ODIN Server
 
-![v0.5.18](https://img.shields.io/badge/version-0.5.18-blue?style=for-the-badge)
+![v0.5.18](https://img.shields.io/badge/version-0.5.19-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
@@ -221,14 +221,6 @@ The maximum time in milliseconds a client can stay connected, after leaving all 
 no_peers_timeout = 1_000 # ms
 ```
 
-#### `max_parallel_connects`
-
-The maximum number of connections that can be in a HTTP/3 connection setup at the same time.
-
-```toml
-max_parallel_connects = 50
-```
-
 
 ### The `[http]` section
 
@@ -266,12 +258,12 @@ The list of IP addresses to be offered as candidates.
 webrtc_candidates = ["127.0.0.1", "::1"]
 ```
 
-#### `webrtc_ports`
+#### `webrtc_binding`
 
-The port range reserved for WebRTC connections.
+The socket where WebRTC connections are accepted from.
 
 ```toml
-webrtc_ports = {begin = 5000, end = 6000}
+webrtc_binding = "0.0.0.0:5000"
 ```
 
 #### `timeout`
