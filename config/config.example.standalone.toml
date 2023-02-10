@@ -29,8 +29,6 @@ pre_send_timeout = 500 # ms
 no_peers_timeout = 1_000 # ms
 ## The maximum time in milliseconds a connection can take to finish the HTTP/3 setup, until a client is created.
 connect_timeout = 1_000 # ms
-## The maximum number of connections that can be in a HTTP/3 connection setup at the same time.
-max_parallel_connects = 50
 ### Accept IP address changes from clients.
 migration = true
 
@@ -41,8 +39,8 @@ binding = "0.0.0.0:4433"
 certificate_file = "fullchain.pem"
 ### The path to a PEM-encoded private key.
 privatekey_file = "privkey.pem"
-### The port range reserved for WebRTC connections.
-webrtc_ports = {begin = 5000, end = 6000}
+### Socket where WebRTC connections are accepted from.
+webrtc_binding = "0.0.0.0:5000"
 ### Drop connections after this much inactivity in milliseconds.
 timeout = 10_000 # ms
 ### Send a ping to the client using this interval in milliseconds.

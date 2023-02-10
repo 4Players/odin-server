@@ -25,8 +25,8 @@ binding = "0.0.0.0:4433"
 certificate_file = "fullchain.pem"
 ### The path to a PEM-encoded private key.
 privatekey_file = "privkey.pem"
-### The port range reserved for WebRTC connections.
-webrtc_ports = { begin = 5000, end = 6000 }
+### Socket where WebRTC connections are accepted from.
+webrtc_binding = "0.0.0.0:5000"
 ### The list of IP addresses to be offered as candidates.
 webrtc_candidates = ["127.0.0.1", "::1"]
 
