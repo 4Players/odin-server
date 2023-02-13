@@ -516,6 +516,7 @@ privatekey_file = "privkey.pem"
 binding = "0.0.0.0:4433"
 certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
+webrtc_binding = "0.0.0.0:5000"
 ```
 
 
