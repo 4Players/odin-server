@@ -490,6 +490,8 @@ When running the ODIN server in combination with a [gateway][odin-gateway-url], 
 The recommended configuration of the gateway can be defined [here][odin-gateway-config-url].
 
 ```toml
+public_address = "server.tld:4433"
+
 [supervisor]
 url = "http://username:password@localhost:7000/internal"
 ```
@@ -500,6 +502,8 @@ url = "http://username:password@localhost:7000/internal"
 When running the ODIN server in standalone mode, you need to specify at least one JWK used for authorization pair as well as the binding and certificate configuration for incoming client connections.
 
 ```toml
+public_address = "server.tld:4433"
+
 [[authorization.keys]]
 kid = "Afkwfu4BVHDh"
 kty = "OKP"
