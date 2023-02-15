@@ -1,6 +1,6 @@
 # ODIN Server
 
-![v0.5.19](https://img.shields.io/badge/version-0.5.19-blue?style=for-the-badge)
+![v0.5.20](https://img.shields.io/badge/version-0.5.20-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
