@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.5.20
+
+- Added server version to supervisor `sfu.Report` requests
+
 ## 0.5.19
 
 - Added support for multiplexed connections on the same UDP port for web clients
