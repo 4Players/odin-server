@@ -533,7 +533,7 @@ Contact us through the listed methods below to receive answers to your questions
 
 Join our official Discord server to chat with us directly and become a part of the 4Players ODIN community.
 
-[![Join us on Discord](https://www.4players.io/images/join_discord.png)](https://discord.gg/9yzdJNUGZS)
+[![Join us on Discord](https://www.4players.io/images/join_discord.png)](https://4np.de/discord)
 
 
 ### Twitter
