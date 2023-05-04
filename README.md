@@ -1,6 +1,6 @@
 # ODIN Server
 
-![v0.5.20](https://img.shields.io/badge/version-0.5.20-blue?style=for-the-badge)
+![v0.5.21](https://img.shields.io/badge/version-0.5.21-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
@@ -149,6 +149,14 @@ d = "5FYw1qdABjE0qEKEe821L7UPl_DZfO-PavpaiLsGDR0"
 
 The `[quic]` section is used to enable and configure the HTTP/3 socket listener for native ODIN core SDK clients.
 
+#### `public_address_override` <sub><sup>*Required*</sub></sup>
+
+Optional FQDN and port number where the server can be reached from the Internet specifically for QUIC clients.
+
+```toml
+public_address_override = "localhost:4433"
+```
+
 #### `binding` <sub><sup>*Required*</sub></sup>
 
 The socket where incoming connections are accepted from. 
@@ -225,6 +233,14 @@ no_peers_timeout = 1_000 # ms
 ### The `[http]` section
 
 The `[http]` section is used to enable and configure the socket listener for ODIN web SDK clients.
+
+#### `public_address_override` <sub><sup>*Required*</sub></sup>
+
+Optional FQDN and port number where the server can be reached from the Internet specifically for WebSocket clients.
+
+```toml
+public_address_override = "localhost:4433"
+```
 
 #### `binding` <sub><sup>*Required*</sub></sup>
 

@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.5.21
+
+- Added forward compatibility to support new client versions
+- Added `public_address_override` setting for `quic` and `http` configs to allow specifying individual public endpoints per protocol if needed
+
 ## 0.5.20
 
 - Added server version to supervisor `sfu.Report` requests
