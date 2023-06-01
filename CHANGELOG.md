@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 0.5.23
+
+- Added per customer `billing_voice_incoming_bytes` and `billing_voice_outgoing_bytes` to metrics
+- Added log message when server is starting with no client listener configured
+
+## 0.5.22
+
+- Fixed a bug where subsequent `Authenticate` RPC calls would fail
+
 ## 0.5.21
 
 - Added forward compatibility to support new client versions
