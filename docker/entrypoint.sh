@@ -10,8 +10,10 @@ if [ -f "/data/config.toml" ]; then
   cp -f "/data/config.toml" "${GRID_HOME}/config.toml"
 else
   cat << EOF | sed "s/^[ \t]*//;s/[ \t]*$//;/^$/d" > "${GRID_HOME}/config.toml"
-    verbosity = ${GRID_VERBOSITY:-0}
     public_address = "${GRID_PUBLIC_ADDRESS}"
+
+    [log]
+    verbosity = ${GRID_VERBOSITY:-0}
 
     [supervisor]
     url = "${GRID_SUPERVISOR_URL}"
@@ -25,7 +27,7 @@ else
     binding = "0.0.0.0:4433"
     certificate_file = "${GRID_CERTIFICATE_FILE:-/data/fullchain.pem}"
     privatekey_file = "${GRID_PRIVATE_KEY_FILE:-/data/privkey.pem}"
-    webrtc_ports = { begin = 5000, end = 6000 }
+    webrtc_binding = "0.0.0.0:5000"
 
     [metrics]
     binding = "0.0.0.0:9000"
