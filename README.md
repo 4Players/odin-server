@@ -1,3 +1,5 @@
+![ODIN](https://www.4players.io/images/odin/banner.jpg)
+
 # ODIN Server
 
 ![v1.0.0](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
