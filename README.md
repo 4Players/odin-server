@@ -1,6 +1,6 @@
 # ODIN Server
 
-![v0.5.23](https://img.shields.io/badge/version-0.5.23-blue?style=for-the-badge)
+![v1.0.0](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
@@ -27,6 +27,7 @@ flowchart BT
   C4 --> R1 & R3
 ```
 
+
 ## Configuration
 
 The server is configured using a configuration file and optional command-line arguments.
@@ -52,15 +53,6 @@ Here's an example on how to start the server using a custom config path.
 
 You can change the behavior of your ODIN server by modifying its configuration file called `config.toml`, which uses the [TOML][toml] format.
 
-
-#### `verbosity`
-
-The verbosity level `[0-3]` to define how much information should be written to logs.
-
-```toml
-verbosity = 1
-```
-
 #### `public_address` <sub><sup>*Required*</sub></sup>
 
 The FQDN and port number where the server can be reached from the Internet.
@@ -82,7 +74,6 @@ The full web address of the supervisor to contact and send reports to.
 url = "http://localhost:7000/internal"
 ```
 
-
 #### `report_interval`
 
 The time in milliseconds between consecutive reports to the supervisor.
@@ -97,14 +88,6 @@ When true, the server wait for one report cycle before starting to send reports 
 
 ```toml
 no_warmup = false
-```
-
-#### `version`
-
-A freely pickable number to send with reports. This is currently unused, but reserved for future usage.
-
-```toml
-version = 123456
 ```
 
 
@@ -143,6 +126,29 @@ d = "5FYw1qdABjE0qEKEe821L7UPl_DZfO-PavpaiLsGDR0"
 ```
 
 **Note:** You can use the [@4players/odin-cli][odin-cli-url] package to generate this section for you.
+
+
+### The `[database]` section
+
+The `[database]` section is used to enable and configure an optional database backend using [Redis][redis] to store room/peer state information.
+
+#### `address` <sub><sup>*Required*</sub></sup>
+
+FQDN and port number of the database server to use.
+
+```toml
+address = "127.0.0.1:6379"
+```
+
+#### `server_id`
+
+Optional identifier of the server to use when adding state information to the database.
+
+```toml
+server_id = "foo"
+```
+
+**Note:**  This feature is experimental and should not be used in a production environment.
 
 
 ### The `[quic]` section
@@ -296,6 +302,69 @@ Send a ping to the client using this interval in milliseconds.
 
 ```toml
 ping_interval = 5_000 # ms
+```
+
+#### `no_peers_timeout`
+
+The maximum time in milliseconds a client can stay connected, after leaving all rooms.
+
+```toml
+no_peers_timeout = 1_000 # ms
+```
+
+
+### The `[log]` section
+
+The `[log]` section is used to enable and configure logging features.
+
+#### `verbosity` <sub><sup>*Required*</sub></sup>
+
+The verbosity level `[0-3]` to define how much information should be written to logs.
+
+```toml
+verbosity = 1
+```
+
+#### `filters`
+
+Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
+
+```toml
+filters = ["webrtc", "webrtc_ice"]
+```
+
+
+### The `[log.terminal]` section
+
+The `[log.terminal]` section is used to configure terminal specific logging options.
+
+#### `format`
+
+The output format for terminal logs. Available options are `json` and `text`.
+
+```toml
+format = "text"
+```
+
+
+### The `[log.loki]` section
+
+The `[log.loki]` section is used to configure [Grafana Loki][loki] specific logging options.
+
+#### `url` <sub><sup>*Required*</sub></sup>
+
+The API URL for the external log aggregation system.
+
+```toml
+url = "http://localhost/loki/api/v1"
+```
+
+#### `labels`
+
+Labels to describe the log stream.
+
+```toml
+labels = {job = "foo", instance = "bar"}
 ```
 
 
@@ -564,7 +633,9 @@ Don’t use Discord or Twitter? Send us an [email](mailto:odin@4players.io) and 
 
 [toml]: https://github.com/toml-lang/toml
 [mkcert]: https://github.com/FiloSottile/mkcert
+[loki]: https://grafana.com/oss/loki/
 [prometheus]: https://prometheus.io
+[redis]: https://redis.io
 [odin-cli-url]: https://www.npmjs.com/package/@4players/odin-cli
 [odin-gateway-url]: https://github.com/4Players/odin-gateway
 [odin-gateway-config-url]: https://github.com/4Players/odin-gateway/blob/main/gridConfig.ts
