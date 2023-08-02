@@ -1,6 +1,3 @@
-### The verbosity level [0-3] to define how much information should be written to logs.
-verbosity = 1
-
 ### The FQDN and port number where the server can be reached from the Internet.
 public_address = "localhost:4433"
 
@@ -13,7 +10,7 @@ allow_unsigned = false
 leeway = 5_000 # ms
 
 [quic]
-### The socket where incoming connections are accepted from.
+### The socket where incoming QUIC connections are accepted from.
 binding = "0.0.0.0:4433"
 ### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
 certificate_file = "fullchain.pem"
@@ -33,7 +30,7 @@ connect_timeout = 1_000 # ms
 migration = true
 
 [http]
-### The socket where incoming connections are accepted from.
+### The socket where incoming WebSocket connections are accepted from.
 binding = "0.0.0.0:4433"
 ### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
 certificate_file = "fullchain.pem"
@@ -41,22 +38,12 @@ certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
 ### Socket where WebRTC connections are accepted from.
 webrtc_binding = "0.0.0.0:5000"
+### The list of IP addresses to be offered as candidates.
+webrtc_candidates = ["127.0.0.1", "::1"]
 ### Drop connections after this much inactivity in milliseconds.
 timeout = 10_000 # ms
 ### Send a ping to the client using this interval in milliseconds.
 ping_interval = 5_000 # ms
-### The list of IP addresses to be offered as candidates.
-webrtc_candidates = ["127.0.0.1", "::1"]
-
-[metrics]
-### The socket where incoming connections are accepted from.
-binding = "0.0.0.0:9000"
-### How long after the last change a metric value is reported.
-idle_timeout = 3_600_000 # ms
-### Labels that are added to all reported metrics.
-global_labels = {deployment = "foo"}
-### List of IP subnets that are allowed to query metrics from the server.
-allowed = ["127.0.0.0/8"]
 
 [limit]
 ### The maximum number of concurrent clients
@@ -75,6 +62,22 @@ incoming_media_packets = {rate = 50, capacity = 100}
 incoming_messages = {rate = 10, capacity = 50, overflow = 20}
 ### The number of medias a peer can create.
 medias = 5
+
+[log]
+### The verbosity level [0-3] to define how much information should be written to logs.
+verbosity = 1
+### Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
+filters = ["webrtc", "webrtc_ice"]
+
+[metrics]
+### The socket where incoming connections are accepted from.
+binding = "0.0.0.0:9000"
+### How long after the last change a metric value is reported.
+idle_timeout = 3_600_000 # ms
+### Labels that are added to all reported metrics.
+global_labels = {deployment = "foo"}
+### List of IP subnets that are allowed to query metrics from the server.
+allowed = ["127.0.0.0/8"]
 
 [internal]
 ### A debug option to emit warnings if RPC calls take longer then the threshold in milliseconds.
