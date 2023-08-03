@@ -355,10 +355,10 @@ The `[log.loki]` section is used to configure [Grafana Loki][loki] specific logg
 
 #### `url` <sub><sup>*Required*</sub></sup>
 
-The URL where the external log aggregation system is running.
+The base URL where the external log aggregation system is running.
 
 ```toml
-url = "http://localhost"
+url = "http://localhost/"
 ```
 
 #### `labels`
