@@ -2,7 +2,7 @@
 
 # ODIN Server
 
-![v1.0.0](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
+![v1.1.0](https://img.shields.io/badge/version-1.1.0-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
@@ -504,6 +504,14 @@ Data from the `[license]` section to send to the telemetry server.
 
 ```toml
 data = ["LicenseValidUntil", "LicenseLicensee", "LicenseSerialNumber", "LicenseIssuer"]
+```
+
+#### `allow_unknown_server_certificates`
+
+Allows acceptance of SSL/TLS certificates signed by unknown authorities when sending reports.
+
+```toml
+allow_unknown_server_certificates = false
 ```
 
 
