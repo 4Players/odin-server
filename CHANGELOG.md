@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.0
+
+- Added per customer RPC usage information to metrics
+- Added optional `allow_unknown_server_certificates` setting to `telemetry` configs
+- Improved logging for scenarios when incoming QUIC connections fail
+- Adjusted the maximum datagram size for QUIC connections
+
 ## 1.0.0 🎉
 
 - Added support for WebRTC video streams
