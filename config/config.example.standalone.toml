@@ -53,10 +53,6 @@ max_peers = 25
 ### The maximum number of concurrent rooms
 max_rooms = 25
 
-[limit.network]
-### The number of packets a media can send to the server every second.
-incoming_media_packets = {rate = 50, capacity = 100}
-
 [limit.peer]
 ### The number of command packets of a peer that are processed by the server every second.
 incoming_messages = {rate = 10, capacity = 50, overflow = 20}
