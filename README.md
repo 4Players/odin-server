@@ -2,7 +2,7 @@
 
 # ODIN Server
 
-![v1.1.0](https://img.shields.io/badge/version-1.1.0-blue?style=for-the-badge)
+![v1.3.0](https://img.shields.io/badge/version-1.3.0-blue?style=for-the-badge)
 
 ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
 
@@ -142,6 +142,30 @@ FQDN and port number of the database server to use.
 address = "127.0.0.1:6379"
 ```
 
+#### `use_tls`
+
+Establish a secure TLS connection.
+
+```toml
+use_tls = true
+```
+
+#### `username`
+
+Optional username to use ACL style authentication when connecting to the server (requires a password).
+
+```toml
+username = "admin"
+```
+
+#### `password`
+
+Optional password to use when connecting to the server.
+
+```toml
+password = "secret"
+```
+
 #### `server_id`
 
 Optional identifier of the server to use when adding state information to the database.
@@ -149,8 +173,6 @@ Optional identifier of the server to use when adding state information to the da
 ```toml
 server_id = "foo"
 ```
-
-**Note:**  This feature is experimental and should not be used in a production environment.
 
 
 ### The `[quic]` section
@@ -500,18 +522,42 @@ max_consecutive_failures = 4
 
 #### `data`
 
-Data from the `[license]` section to send to the telemetry server.
+Optional data from the `[license]` section to send to the telemetry server.
 
 ```toml
-data = ["LicenseValidUntil", "LicenseLicensee", "LicenseSerialNumber", "LicenseIssuer"]
+data = [
+  "LicenseValidUntil",
+  "LicenseLicensee",
+  "LicenseSerialNumber",
+  "LicenseIssuer",
+  "LicenseClientLimit",
+  "LicenseClientUsage",
+  "LicensePeerLimit",
+  "LicensePeerUsage",
+  "LicenseRoomLimit",
+  "LicenseRoomUsage"
+]
 ```
 
-#### `allow_unknown_server_certificates`
 
-Allows acceptance of SSL/TLS certificates signed by unknown authorities when sending reports.
+### The `[http_client]` section
+
+The optional `[http_client]` section is used to configure the behavior of the internal HTTP client for outbound requests.
+
+#### `proxy` <sub><sup>*Required*</sub></sup>
+
+Optional HTTP/HTTPS proxy server to use for outbound requests.
 
 ```toml
-allow_unknown_server_certificates = false
+proxy = "http://localhost:3128"
+```
+
+#### `accept_invalid_certificates`
+
+Allows acceptance of SSL/TLS certificates signed by unknown authorities during outbound requests.
+
+```toml
+accept_invalid_certificates = false
 ```
 
 
