@@ -626,6 +626,14 @@ A debug option to emit warnings if RPC calls take longer then the threshold in m
 log_hanging_api_calls = 1_000 # ms
 ```
 
+#### `log_rejected_api_calls`
+
+A debug option to emit warnings if RPC calls are rejected.
+
+```toml
+log_rejected_api_calls = false
+```
+
 
 ## Examples
 
