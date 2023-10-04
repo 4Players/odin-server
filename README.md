@@ -370,6 +370,14 @@ The output format for terminal logs. Available options are `json` and `text`.
 format = "text"
 ```
 
+#### `colors`
+
+Use colored output if supported by the specified format.
+
+```toml
+colors = true
+```
+
 
 ### The `[log.loki]` section
 
