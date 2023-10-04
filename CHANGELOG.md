@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.3.0 📦
+
+- Enhanced `telemetry` config with optional fields for server usage reporting
+- Refined position-based packet culling for 3D coordinate support
+- Updated Redis database structure
+
+## 1.2.2
+
+- Restored legacy 1.x client compatibility for `MediaStarted` events
+
+## 1.2.1
+
+- Introduced `use_tls`, `username`, and `password` settings to `database` config
+- Resolved duplicate HTTP basic auth headers in supervisor URLs
+
+## 1.2.0
+
+- Introduced terminal-specific `colors` setting in `log` config
+- Added `http_client` config for proxy server setup in outbound HTTP requests
+- Included debug option for logging rejected RPC calls
+- Renamed `allow_unknown_server_certificates` to `accept_invalid_certificates`, relocated to new `http_client` config
+- Refined logging to maintain external log aggregation integrity regardless of verbosity filters
+- Enhanced logging and error handling for outbound telemetry requests on on-premise servers
+- Fixed client re-entry issue on the same QUIC connection to a second room
+- Fixed incorrect per customer RPC usage counting
+
 ## 1.1.0
 
 - Added per customer RPC usage information to metrics
