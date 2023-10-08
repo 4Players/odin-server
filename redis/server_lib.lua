@@ -1,6 +1,9 @@
 #!lua name=odinserver
 
----Link a room-id to a room-instance on a server
+---Links a canonical room id to a server instance
+---@param key          string  Key to the `room::{[room-id]}::server` entry.
+---@param server-id    string  The id of the server.
+---@param instance-id  string  The id of the instance.
 local function server_link_room(keys, args)
     local key = keys[1]
     local server_id = args[1]
@@ -13,12 +16,15 @@ local function server_link_room(keys, args)
     else
         return 0
     end
-    redis.call('EXPIRE', key, 86400)
+    redis.call('EXPIRE', key, 86400) -- 1 day
     redis.call('TYPE', key)
     return 1
 end
 
----Removes a previously made link between a room-id and a server instance
+---Removes a previously made link between a canonical room id and a server instance
+---@param key          string  Key to the `room::{[room-id]}::server` entry.
+---@param server-id    string  The id of the server.
+---@param instance-id  string  The id of the instance.
 local function server_unlink_room(keys, args)
     local key = keys[1]
     local server_id = args[1]
@@ -31,5 +37,14 @@ local function server_unlink_room(keys, args)
     end
 end
 
-redis.register_function('server_link_room', server_link_room)
-redis.register_function('server_unlink_room', server_unlink_room)
+redis.register_function{
+    function_name='server_link_room',
+    callback=server_link_room,
+    description='Creates a link between a canonical room id and a server instance'
+}
+
+redis.register_function{
+    function_name='server_unlink_room',
+    callback=server_unlink_room,
+    description='Removes a link between a canonical room id and a server instance'
+}
