@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.3.1
+
+- Fixed a bug where instance properties were not deleted from [Redis](https://redis.io) database backend on room close
+
 ## 1.3.0 📦
 
 - Enhanced `telemetry` config with optional fields for server usage reporting
