@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.3.2
+
+- Updated timeouts for all keys in optional [Redis](https://redis.io) database backend to 7 days
+- Fixed a bug where 3D ccordinates were not stored as peer properties in database
+
 ## 1.3.1
 
 - Fixed a bug where instance properties were not deleted from [Redis](https://redis.io) database backend on room close
