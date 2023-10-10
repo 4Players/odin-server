@@ -4,7 +4,7 @@
 
 ![v1.3.2](https://img.shields.io/badge/version-1.3.2-blue?style=for-the-badge)
 
-ODIN is a cross-platform software development kit (SDK) that enables developers to integrate real-time chat technology into multiplayer games, apps and websites.
+ODIN is a versatile cross-platform Software Development Kit (SDK) engineered to seamlessly integrate real-time voice chat into multiplayer games, applications, and websites. Regardless of whether you're employing a native application or your preferred web browser, ODIN simplifies the process of maintaining connections with your significant contacts. Through its intuitive interface and robust functionality, ODIN enhances interactive experiences, fostering real-time engagement and collaboration across various digital platforms.
 
 [Online Documentation](https://www.4players.io/developers/)
 
