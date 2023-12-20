@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## 1.3.6
 
-- Added new config `concurrent_streams` setting to peer limit config that allows specifying the maximum number of audio streams each individual peer can receive at the same time
+- Added new `concurrent_streams` setting to peer limit config that allows specifying the maximum number of audio streams each individual peer can receive at the same time
 
 ## 1.3.5
 
