@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.3.6
+
+- Added new config `concurrent_streams` setting to peer limit config that allows specifiying the maximum number of audio streams each individual peer can receive at the same time
+
+## 1.3.5
+
+- Added code that lowers the amount of allocations when broadcasting packets
+- Fixed broken `system_network_tx_bytes` metric
+- Ignore `SetPosition` RPC calls if peer is already at target coordinates
+
+## 1.3.4
+
+- Use random instance id when initializing the server to avoid duplicate keys in [Redis](https://redis.io)
+
+## 1.3.3
+
+- Updated k-d-tree bucket size from 32 to 128
+- Reject `SetPosition` RPC calls with positions where too many neighbors exist
+
 ## 1.3.2
 
 - Updated timeouts for all keys in optional [Redis](https://redis.io) database backend to 7 days
