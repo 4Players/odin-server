@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.3.8
+
+- Fixed a bug where distances for peers that remained in range were not updated when limiting concurrent streams
+
+## 1.3.7
+
+- Fixed a potential crash when updating peer positions by adding a random factor to the coordinates on all axis with epsilon magnitude
+
 ## 1.3.6
 
 - Added new `concurrent_streams` setting to peer limit config that allows specifying the maximum number of audio streams each individual peer can receive at the same time
