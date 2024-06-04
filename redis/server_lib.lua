@@ -10,16 +10,8 @@ local function server_link_room(keys, args)
     local server_id = args[1]
     local instance_id = args[2]
     local timeout = args[3]
-    local value = redis.call('HGET', key, 'id')
-    if value == false then
-        redis.call('HSET', key, 'id', server_id, 'instance-id', instance_id)
-    elseif value == server_id then
-        redis.call('HSET', key, 'instance-id', instance_id)
-    else
-        return 0
-    end
+    redis.call('HSET', key, 'id', server_id, 'instance-id', instance_id)
     redis.call('EXPIRE', key, timeout)
-    redis.call('TYPE', key)
     return 1
 end
 
