@@ -2,7 +2,7 @@
 
 # ODIN Server
 
-![v1.3.8](https://img.shields.io/badge/version-1.3.8-blue?style=for-the-badge)
+![v1.5.3](https://img.shields.io/badge/version-1.5.3-blue?style=for-the-badge)
 
 ODIN is a versatile cross-platform Software Development Kit (SDK) engineered to seamlessly integrate real-time voice chat into multiplayer games, applications, and websites. Regardless of whether you're employing a native application or your preferred web browser, ODIN simplifies the process of maintaining connections with your significant contacts. Through its intuitive interface and robust functionality, ODIN enhances interactive experiences, fostering real-time engagement and collaboration across various digital platforms.
 
@@ -174,6 +174,14 @@ Optional identifier of the server to use when adding state information to the da
 server_id = "foo"
 ```
 
+#### `command_timeout`
+
+Optional command timeout after which commands in the pipeline will fail.
+
+```toml
+command_timeout = 500
+```
+
 
 ### The `[quic]` section
 
@@ -337,9 +345,9 @@ no_peers_timeout = 1_000 # ms
 ```
 
 
-### The `[log]` section
+### The `[log.terminal]` section
 
-The `[log]` section is used to enable and configure logging features.
+The `[log.terminal]` section is used to configure terminal specific logging options.
 
 #### `verbosity` <sub><sup>*Required*</sub></sup>
 
@@ -349,19 +357,6 @@ The verbosity level `[0-3]` to define how much information should be written to 
 verbosity = 1
 ```
 
-#### `filters`
-
-Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
-
-```toml
-filters = ["webrtc", "webrtc_ice"]
-```
-
-
-### The `[log.terminal]` section
-
-The `[log.terminal]` section is used to configure terminal specific logging options.
-
 #### `format`
 
 The output format for terminal logs. Available options are `json` and `text`.
@@ -370,12 +365,12 @@ The output format for terminal logs. Available options are `json` and `text`.
 format = "text"
 ```
 
-#### `colors`
+#### `filters`
 
-Use colored output if supported by the specified format.
+Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
 
 ```toml
-colors = true
+filters = ["webrtc", "webrtc_ice"]
 ```
 
 
@@ -680,12 +675,6 @@ d = "5FYw1qdABjE0qEKEe821L7UPl_DZfO-PavpaiLsGDR0"
 binding = "0.0.0.0:4433"
 certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
-
-[http]
-binding = "0.0.0.0:4433"
-certificate_file = "fullchain.pem"
-privatekey_file = "privkey.pem"
-webrtc_binding = "0.0.0.0:5000"
 ```
 
 
