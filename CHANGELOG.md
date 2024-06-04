@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.3
+
+- Fixed a bug where the server provided invalid WebRTC candidates to browser clients using IPv6
+
+## 1.5.2
+
+- Fixed server not shutting down after 300 seconds of failed supervisor reports
+
+## 1.5.1
+
+- Added database health check to supervisor reports
+- Removed [Redis](https://redis.io) client-side caching for `server_link_room` to prevent possible ownership fights
+- Fixed `room is temporarily not available` errors
+
+## 1.5.0
+
+- Refactored peer position system to no longer use a k-d-tree to improve performance
+- Fixed clients not being reaped after disconnecting
+
+## 1.4.3
+
+- Added missing functionality to update existing ban list entries 
+
+## 1.4.2
+
+- Improved logging and error handing when clients try to authenticate with invalid tokens
+
+## 1.4.1
+
+- Fixed a bug where invalid peer coordinates were written to the server logs
+
+## 1.4.0
+
+- Added support for ODIN server extenders
+- Added support for Apple Silicon Macs
+- Removed `colors` setting from log config in favor of `NO_COLOR` environment variable
+- Reorganized log config for enhanced convenience
+
+## 1.3.10
+
+- Added new `command_timeout` setting to database config to prevent commands from waiting for [Redis](https://redis.io) connection being re-established
+
+## 1.3.9
+
+- Temporarily expanded the QUIC server send window to conduct scalability testing
+
 ## 1.3.8
 
 - Fixed a bug where distances for peers that remained in range were not updated when limiting concurrent streams
