@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.5
+
+- Updated WebTransport settings to allow PlayStation 5 clients to connect
+
+## 1.5.4
+
+- Fixed a bug where servers in stand-alone mode were unable to start
+
 ## 1.5.3
 
 - Fixed a bug where the server provided invalid WebRTC candidates to browser clients using IPv6
