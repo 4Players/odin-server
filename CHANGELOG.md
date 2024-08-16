@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - Removed [Redis](https://redis.io) client-side caching for `server_link_room` to prevent possible ownership fights
 - Fixed `room is temporarily not available` errors
 
-## 1.5.0
+## 1.5.0 📍
 
 - Refactored peer position system to no longer use a k-d-tree to improve performance
 - Fixed clients not being reaped after disconnecting
@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
 
 - Fixed a bug where invalid peer coordinates were written to the server logs
 
-## 1.4.0
+## 1.4.0 👨‍💻
 
 - Added support for ODIN server extenders
 - Added support for Apple Silicon Macs
