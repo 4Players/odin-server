@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 1.5.5
+## 1.5.5 🎮
 
 - Updated WebTransport settings to allow PlayStation 5 clients to connect
 
