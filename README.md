@@ -317,7 +317,7 @@ webrtc_candidates = ["127.0.0.1", "::1"]
 The socket where WebRTC connections are accepted from.
 
 ```toml
-webrtc_binding = "0.0.0.0:5000"
+webrtc_binding = "0.0.0.0:8844"
 ```
 
 #### `timeout`

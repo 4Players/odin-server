@@ -23,7 +23,7 @@ WORKDIR ${GRID_HOME}
 
 EXPOSE \
   4433/tcp \
-  5000/udp \
+  8844/udp \
   4433/udp \
   9000/tcp
 

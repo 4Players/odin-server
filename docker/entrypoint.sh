@@ -58,7 +58,7 @@ else
       binding = "0.0.0.0:4433"
       certificate_file = "${GRID_CERTIFICATE_FILE:-/data/fullchain.pem}"
       privatekey_file = "${GRID_PRIVATE_KEY_FILE:-/data/privkey.pem}"
-      webrtc_binding = "0.0.0.0:5000"
+      webrtc_binding = "0.0.0.0:8844"
       ${GRID_HTTP_WEBRTC_CANDIDATES:+webrtc_candidates = [ ${GRID_HTTP_WEBRTC_CANDIDATES} ]}
       ${GRID_HTTP_NO_PEERS_TIMEOUT:+no_peers_timeout = ${GRID_HTTP_NO_PEERS_TIMEOUT}}
       ${GRID_HTTP_PING_INTERVAL:+ping_interval = ${GRID_HTTP_PING_INTERVAL}}

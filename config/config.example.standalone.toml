@@ -37,7 +37,7 @@ certificate_file = "fullchain.pem"
 ### The path to a PEM-encoded private key.
 privatekey_file = "privkey.pem"
 ### Socket where WebRTC connections are accepted from.
-webrtc_binding = "0.0.0.0:5000"
+webrtc_binding = "0.0.0.0:8844"
 ### The list of IP addresses to be offered as candidates.
 webrtc_candidates = ["127.0.0.1", "::1"]
 ### Drop connections after this much inactivity in milliseconds.
