@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.8
+
+- Added a convenience feature to automatically determine WebRTC candidates using `public_address` when none are configured
+
+## 1.5.7
+
+- Changed default WebRTC binding port from `5000` to `8844`
+- Fixed a bug where WebRTC candidate settings were not applied correctly
+
 ## 1.5.6
 
 - Updated media packet routing to support clients with E2E encryption enabled
