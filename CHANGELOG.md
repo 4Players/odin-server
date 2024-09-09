@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.9
+
+- Fixed a potential issue that could cause web clients to stop receiving voice packets under certain conditions
+
 ## 1.5.8
 
 - Added a convenience feature to automatically determine WebRTC candidates using `public_address` when none are configured
