@@ -1,8 +1,8 @@
 ![ODIN](https://www.4players.io/images/odin/banner.jpg)
 
-# ODIN Server
+# ODIN Voice Server
 
-![v1.5.9](https://img.shields.io/badge/version-1.5.9-blue?style=for-the-badge)
+![v1.5.12](https://img.shields.io/badge/version-1.5.12-blue?style=for-the-badge)
 
 ODIN is a versatile cross-platform Software Development Kit (SDK) engineered to seamlessly integrate real-time voice chat into multiplayer games, applications, and websites. Regardless of whether you're employing a native application or your preferred web browser, ODIN simplifies the process of maintaining connections with your significant contacts. Through its intuitive interface and robust functionality, ODIN enhances interactive experiences, fostering real-time engagement and collaboration across various digital platforms.
 
@@ -53,7 +53,7 @@ Here's an example on how to start the server using a custom config path.
 
 ### The `config.toml` file
 
-You can change the behavior of your ODIN server by modifying its configuration file called `config.toml`, which uses the [TOML][toml] format.
+You can change the behavior of your ODIN voice server by modifying its configuration file called `config.toml`, which uses the [TOML][toml] format.
 
 #### `public_address` <sub><sup>*Required*</sub></sup>
 
