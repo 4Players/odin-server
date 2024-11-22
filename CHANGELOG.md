@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.12
+
+- Fixed a bug where multi-room voice packets could be rejected
+
+## 1.5.11
+
+- Enhanced error messages for invalid or excessive media ID inputs to provide clearer feedback for debugging
+
+## 1.5.10
+
+- Improved audio transmission by implementing backpressure handling to allow dropping stale voice packets during network delays
+- Introduced a timeout mechanism to discard voice packets delayed by more than 100ms to optimize real-time audio performance for web clients
+- Added a new metric to monitor contention scenarios where sending voice packets requires deferred execution
+
 ## 1.5.9
 
 - Fixed a potential issue that could cause web clients to stop receiving voice packets under certain conditions
