@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.5.15
+
+- Updated Windows dependencies to maintain compatibility with older operating systems lacking support for `ISWow64Process2`
+- Updated Alpine Linux base image to version 3.20
+
+## 1.5.14
+
+- Increased gateway request timeout during startup
+
+## 1.5.13
+
+- Fixed an issue that could lead to lingering WebRTC connections in specific scenarios
+
 ## 1.5.12
 
 - Fixed a bug where multi-room voice packets could be rejected
