@@ -10,7 +10,7 @@ ADD --chown=0:0 entrypoint.sh /usr/local/bin
 
 RUN \
   set -eux; \
-  apk add --no-cache --no-progress ca-certificates libstdc++ libssl1.1 libcrypto1.1; \
+  apk add --no-cache --no-progress ca-certificates libstdc++; \
   addgroup -g 1000 grid; \
   adduser -Ss /bin/false -u 1000 -G grid -Hh ${GRID_HOME} grid; \
   install -d -o grid -g grid -m 775 ${GRID_HOME}; \
