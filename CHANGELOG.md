@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.2
+
+- Added cleanup procedure for orphan rooms in the database on server startup
+- Optimized database handling for better performance
+- Added support for VP9, H.264 and AV1 video codecs
+
+## 1.6.1
+
+- Improved `server_actions` with cancellation safety in the database handler
+
+## 1.6.0 🏥
+
+- Refactored database backend to remove dependency on specific Redis functions
+- Updated supervisor reports to be stored in the database for multi-gateway scalability
+- Separated gateway and provisioning into distinct services
+- Added support for tagging during provisioning to enable customer-specific server assignments
+
 ## 1.5.15
 
 - Updated Windows dependencies to maintain compatibility with older operating systems lacking support for `ISWow64Process2`
