@@ -1,11 +1,9 @@
 ### The FQDN and port number where the server can be reached from the Internet.
 public_address = "localhost:4433"
 
-[supervisor]
+[provisioning]
 ### The full web address of the supervisor to contact and send reports to.
 url = "http://localhost:7000/internal"
-### The time in milliseconds between consecutive reports to the supervisor.
-report_interval = 5_000 # ms
 
 [quic]
 ### The socket where incoming QUIC connections are accepted from.
@@ -27,8 +25,8 @@ webrtc_binding = "0.0.0.0:8844"
 ### The list of IP addresses to be offered as candidates.
 webrtc_candidates = ["127.0.0.1", "::1"]
 
-[log]
-### The verbosity level [0-3] to define how much information should be written to logs.
+[log.terminal]
+### The verbosity level [0-3] to define how much information should be written to logs (defaults to 1).
 verbosity = 1
 ### Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
 filters = ["webrtc", "webrtc_ice"]

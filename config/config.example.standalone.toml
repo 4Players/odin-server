@@ -3,7 +3,9 @@ public_address = "localhost:4433"
 
 [authorization]
 ### A List of JWKs that are valid for signing tokens.
-keys = [{kid = "AWMsrlLGIO/K", kty = "OKP", crv = "Ed25519", x = "Vs-VjcqDRizEvU9c0fOwE2CnwfrE0vB4IyuLwOoW1gc", d = "ktMKF-y1FC84JT-R6vz9VwkX7eKN5QpiWbHVrY5J5Yw"}]
+keys = [
+    { kid = "AWMsrlLGIO/K", kty = "OKP", crv = "Ed25519", x = "Vs-VjcqDRizEvU9c0fOwE2CnwfrE0vB4IyuLwOoW1gc", d = "ktMKF-y1FC84JT-R6vz9VwkX7eKN5QpiWbHVrY5J5Yw" },
+]
 ### Prevent using unsigned tokens for authentication.
 allow_unsigned = false
 ### The number of milliseconds a login token can be before or beyond its valid time period and still pass.
@@ -55,12 +57,12 @@ max_rooms = 25
 
 [limit.peer]
 ### The number of command packets of a peer that are processed by the server every second.
-incoming_messages = {rate = 10, capacity = 50, overflow = 20}
+incoming_messages = { rate = 10, capacity = 50, overflow = 20 }
 ### The number of medias a peer can create.
 medias = 5
 
-[log]
-### The verbosity level [0-3] to define how much information should be written to logs.
+[log.terminal]
+### The verbosity level [0-3] to define how much information should be written to logs (defaults to 1).
 verbosity = 1
 ### Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
 filters = ["webrtc", "webrtc_ice"]
@@ -71,7 +73,7 @@ binding = "0.0.0.0:9000"
 ### How long after the last change a metric value is reported.
 idle_timeout = 3_600_000 # ms
 ### Labels that are added to all reported metrics.
-global_labels = {deployment = "foo"}
+global_labels = { deployment = "foo" }
 ### List of IP subnets that are allowed to query metrics from the server.
 allowed = ["127.0.0.0/8"]
 

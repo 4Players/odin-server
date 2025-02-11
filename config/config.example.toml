@@ -1,0 +1,155 @@
+### The FQDN and port number where the server can be reached from the Internet.
+public_address = "localhost:4433"
+
+[provisioning]
+### The full web address of the provisioning service to contact and receive the full config from.
+url = "http://localhost:7000/internal"
+
+[authorization]
+### Prevent using unsigned tokens for authentication.
+allow_unsigned = false
+### The number of milliseconds a login token can be before or beyond its valid time period and still pass.
+leeway = 5_000 # ms
+### A List of JWKs that are valid for signing tokens.
+keys = [
+  { kid = "AWMsrlLGIO/K", kty = "OKP", crv = "Ed25519", x = "Vs-VjcqDRizEvU9c0fOwE2CnwfrE0vB4IyuLwOoW1gc", d = "ktMKF-y1FC84JT-R6vz9VwkX7eKN5QpiWbHVrY5J5Yw" },
+]
+
+[database]
+### Address of the Redis server to use.
+url = "redis://127.0.0.1:6379"
+### Optional username to use ACL style authentication when connecting to the server (requires a password).
+username = "admin"
+### Optional password to use when connecting to the server.
+password = "secret"
+### Optional identifier of the server to use when adding state information to the database.
+server_id = "foo"
+### Optional time to attempt a connection before timing out (default is 10 seconds)
+connect_timeout = 10_000 # ms
+### Optional command timeout after which commands in the pipeline will fail.
+command_timeout = 500 # ms
+
+[database.report]
+### The time in milliseconds between consecutive reports to the database backend.
+interval = 5_000 # ms
+### Optional tags to add in reports stored in the database.
+tags = ["foo"]
+
+[quic]
+### Optional FQDN and port number where the server can be reached from the Internet specifically for QUIC clients.
+public_address_override = "localhost:4433"
+### The socket where incoming QUIC connections are accepted from.
+binding = "0.0.0.0:4433"
+### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
+certificate_file = "fullchain.pem"
+### The path to a PEM-encoded private key.
+privatekey_file = "privkey.pem"
+### Time in milliseconds between keep-alive packets sent by the server.
+keep_alive_interval = 5_000 # ms
+### Drop a connection if no packets have been received in this time span in milliseconds.
+idle_timeout = 30_000 # ms
+### The maximum time the sender waits for a packet to be inserted into the send buffer.
+pre_send_timeout = 500 # ms
+## The maximum time in milliseconds a client can stay connected, after leaving all rooms.
+no_peers_timeout = 1_000 # ms
+## The maximum time in milliseconds a connection can take to finish the HTTP/3 setup, until a client is created.
+connect_timeout = 1_000 # ms
+### Accept IP address changes from clients.
+migration = true
+
+[http]
+### Optional FQDN and port number where the server can be reached from the Internet specifically for WebSocket clients.
+public_address_override = "localhost:4433"
+### The socket where incoming WebSocket connections are accepted from.
+binding = "0.0.0.0:4433"
+### The path to a PEM-encoded leaf certificate followed by optional intermediate certificates.
+certificate_file = "fullchain.pem"
+### The path to a PEM-encoded private key.
+privatekey_file = "privkey.pem"
+### Socket where WebRTC connections are accepted from.
+webrtc_binding = "0.0.0.0:8844"
+### The list of IP addresses to be offered as candidates.
+webrtc_candidates = ["127.0.0.1", "::1"]
+### Drop connections after this much inactivity in milliseconds.
+timeout = 10_000 # ms
+### Send a ping to the client using this interval in milliseconds.
+ping_interval = 5_000 # ms
+## The maximum time in milliseconds a client can stay connected, after leaving all rooms.
+no_peers_timeout = 1_000 # ms
+
+[log.terminal]
+### The verbosity level [0-3] to define how much information should be written to logs (defaults to 1).
+verbosity = 1
+### The output format for terminal logs. Available options are 'text', 'json' and 'none' (defaults to 'text').
+format = "text"
+### Optional list of modules filtered from logs to prevent unnecessary noise, except for error messages.
+filters = ["webrtc", "webrtc_ice"]
+
+[log.loki]
+### The base URL where the external log aggregation system is running.
+url = "http://localhost/"
+### Labels to describe the log stream.
+labels = { job = "foo", instance = "bar" }
+
+[metrics]
+### The socket where incoming connections are accepted from.
+binding = "0.0.0.0:9000"
+### How long after the last change a metric value is reported.
+idle_timeout = 3_600_000 # ms
+### Labels that are added to all reported metrics.
+global_labels = { deployment = "foo" }
+### List of IP subnets that are allowed to query metrics from the server.
+allowed = ["127.0.0.0/8"]
+### The interval in milliseconds how often the system metrics should be updated.
+system_update_interval = 15_000
+
+[telemetry]
+### The web address of the telemetry server to contact and send reports to.
+address = "http://localhost/"
+### The interval in milliseconds how often the telemetry data is being sent.
+interval = 5_000 # ms
+### When set, this defines the maximum number of times sending telemetry data can fail before the server shuts down.
+max_consecutive_failures = 4
+### Data from license section to send to the telemetry server.
+data = [
+  "LicenseValidUntil",
+  "LicenseLicensee",
+  "LicenseSerialNumber",
+  "LicenseIssuer",
+  "LicenseClientLimit",
+  "LicenseClientUsage",
+  "LicensePeerLimit",
+  "LicensePeerUsage",
+  "LicenseRoomLimit",
+  "LicenseRoomUsage",
+]
+
+[limit]
+### The maximum number of concurrent clients
+max_clients = 25
+### The maximum number of concurrent peers
+max_peers = 25
+### The maximum number of concurrent rooms
+max_rooms = 25
+
+[limit.peer]
+### The number of command packets of a peer that are processed by the server every second.
+incoming_messages = { rate = 10, capacity = 50, overflow = 20 }
+### The number of concurrent audio streams [0-8] a peer can receive. A value of 0 means unlimited.
+concurrent_streams = 8
+### The number of medias a peer can create.
+medias = 5
+
+[http_client]
+### Optional HTTP/HTTPS proxy server to use for outbound requests.
+proxy = "http://localhost:3128"
+### Allows acceptance of SSL/TLS certificates signed by unknown authorities during outbound requests.
+accept_invalid_certificates = false
+
+[internal]
+### A debug option to emit warnings if RPC calls take longer then the threshold in milliseconds.
+log_hanging_api_calls = 1_000 # ms
+### A debug option to emit warnings if RPC calls are rejected.
+log_rejected_api_calls = false
+### Collect events for a number of milliseconds before sending the events bundled.
+bundle_events = 20 # ms
