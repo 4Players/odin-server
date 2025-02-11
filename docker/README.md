@@ -22,11 +22,9 @@ The following environment variables are supported:
 * `GRID_PRIVATE_KEY_FILE`
 * `GRID_DEPLOYMENT`
 
-#### Supervisor Settings
+#### Provisioning Settings
 
-* `GRID_SUPERVISOR_URL`
-* `GRID_SUPERVISOR_REPORT_INTERVAL`
-* `GRID_SUPERVISOR_NO_WARMUP`
+* `GRID_PROVISIONING_URL`
 
 #### QUIC Settings
 
@@ -54,12 +52,14 @@ The following environment variables are supported:
 
 #### Database Settings
 
-* `GRID_DATABASE_HOST`
+* `GRID_DATABASE_URL`
 * `GRID_DATABASE_USERNAME`
 * `GRID_DATABASE_PASSWORD`
 * `GRID_DATABASE_SERVER_ID`
+* `GRID_DATABASE_CONNECT_TIMEOUT`
 * `GRID_DATABASE_COMMAND_TIMEOUT`
-* `GRID_DATABASE_USE_TLS`
+* `GRID_DATABASE_REPORT_INTERVAL`
+* `GRID_DATABASE_REPORT_TAGS`
 
 #### Limit Settings
 

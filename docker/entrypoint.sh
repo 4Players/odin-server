@@ -34,9 +34,13 @@ else
         ${GRID_DATABASE_USERNAME:+username = \"${GRID_DATABASE_USERNAME}\"}
         ${GRID_DATABASE_PASSWORD:+password = \"${GRID_DATABASE_PASSWORD}\"}
         ${GRID_DATABASE_SERVER_ID:+server_id = \"${GRID_DATABASE_SERVER_ID}\"}
+        ${GRID_DATABASE_CONNECT_TIMEOUT:+connect_timeout = ${GRID_DATABASE_CONNECT_TIMEOUT}}
         ${GRID_DATABASE_COMMAND_TIMEOUT:+command_timeout = ${GRID_DATABASE_COMMAND_TIMEOUT}}
-        ${GRID_DATABASE_REPORT_INTERVAL:+report_interval = ${GRID_DATABASE_REPORT_INTERVAL}}
       }
+
+      [database.report]
+      ${GRID_DATABASE_REPORT_INTERVAL:+interval = ${GRID_DATABASE_REPORT_INTERVAL}}
+      ${GRID_DATABASE_REPORT_TAGS:+tags = [ ${GRID_DATABASE_REPORT_TAGS} ]}
 
       [authorization]
       ${GRID_AUTHORIZATION_LEEWAY:+leeway = ${GRID_AUTHORIZATION_LEEWAY}}
@@ -85,6 +89,7 @@ else
       [internal]
       log_rejected_api_calls = ${GRID_INTERNAL_LOG_REJECTED_API_CALLS:-false}
       ${GRID_INTERNAL_LOG_HANGING_API_CALLS:+log_hanging_api_calls = ${GRID_INTERNAL_LOG_HANGING_API_CALLS}}
+      bundle_events = 20
 
 EOF
 fi
