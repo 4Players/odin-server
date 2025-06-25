@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.4
+
+- Added video usage metrics
+- Fixed a bug where configured database backend credentials were ignored
+- Readded deprecated `Authenticate` RPC to metrics
+- Updated reconnect tokens to contains origin SFU addresses
+
+## 1.6.3
+
+- Fixed a bug related to `server_actions` when polling a terminated stream
+
 ## 1.6.2
 
 - Added cleanup procedure for orphan rooms in the database on server startup
