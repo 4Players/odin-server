@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.7
+
+- Fixed a bug where `RoomClose` and `RoomBanClient` server actions were not handled properly
+
+## 1.6.6
+
+- Updated internal [Redis](https://redis.io) client and removed OpenSSL dependency
+
+## 1.6.5
+
+- Added support for distinct client metrics using [@4players/ultra-log-log](https://jsr.io/@4players/ultra-log-log), enabling accurate user counts across connections and servers
+
 ## 1.6.4
 
 - Added video usage metrics
