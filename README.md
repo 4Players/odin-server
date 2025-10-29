@@ -1,4 +1,4 @@
-![ODIN](https://www.4players.io/images/odin/banner.jpg)
+![ODIN](https://docs.4players.io/img/odin/banner.jpg)
 
 # ODIN Voice Server
 
@@ -6,7 +6,7 @@
 
 ODIN is a versatile cross-platform Software Development Kit (SDK) engineered to seamlessly integrate real-time voice chat into multiplayer games, applications, and websites. Regardless of whether you're employing a native application or your preferred web browser, ODIN simplifies the process of maintaining connections with your significant contacts. Through its intuitive interface and robust functionality, ODIN enhances interactive experiences, fostering real-time engagement and collaboration across various digital platforms.
 
-[Online Documentation](https://www.4players.io/developers/)
+[Online Documentation](https://docs.4players.io/voice/server/)
 
 This repository provides a collection of scripts and configuration files for running an on-premise ODIN server. The ODIN server is a Selective Forwarding Unit (SFU), which connects users in mutual rooms by acting as a relay for media and data.
 
@@ -677,6 +677,11 @@ certificate_file = "fullchain.pem"
 privatekey_file = "privkey.pem"
 ```
 
+## Online Documentation
+
+[ODIN Voice]: https://docs.4players.io/voice/
+[ODIN Voice Server]: https://docs.4players.io/voice/server/
+
 
 ## Troubleshooting
 
@@ -687,7 +692,7 @@ Contact us through the listed methods below to receive answers to your questions
 
 Join our official Discord server to chat with us directly and become a part of the 4Players ODIN community.
 
-[![Join us on Discord](https://www.4players.io/images/join_discord.png)](https://4np.de/discord)
+[![Join us on Discord](https://docs.4players.io/img/join_discord.png)](https://4np.de/discord)
 
 
 ### Twitter
