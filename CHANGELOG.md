@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.11
+
+- Enable experimental TCP support for WebRTC by providing TCP ICE candidates, improving interoperability with older or restrictive client environments
+- Updated logging to mask credentials in provisioning URL
+
+## 1.6.10
+
+- Fixed a bug where database-startup connection errors were triggering server shutdown
+
+## 1.6.9
+
+- Updated WebRTC dependencies
+
+## 1.6.8
+
+- Added database type detection ([Redis](https://redis.io)/[KeyDB](https://docs.keydb.dev)) on startup and optimized engine specific commands
+
 ## 1.6.7
 
 - Fixed a bug where `RoomClose` and `RoomBanClient` server actions were not handled properly
