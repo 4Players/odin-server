@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## 1.6.11
 
-- Enable experimental TCP support for WebRTC by providing TCP ICE candidates, improving interoperability with older or restrictive client environments
+- Enabled experimental TCP support for WebRTC by providing TCP ICE candidates, improving interoperability with older or restrictive client environments
+- Added `webrtc_enforce_tcp` option to `http` settings
 - Updated logging to mask credentials in provisioning URL
 
 ## 1.6.10
