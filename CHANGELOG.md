@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.14
+
+- Updated internal [Redis](https://redis.io) client to the latest version
+
+## 1.6.13
+
+- Enhanced Docker entrypoint script to support additional configuration options
+
+## 1.6.12
+
+- Enabled optional video support for WebTransport clients
+- Improved browser compatibility for `PauseMedia` and `ResumeMedia` RPCs when used with video streams
+
 ## 1.6.11
 
 - Enabled experimental TCP support for WebRTC by providing TCP ICE candidates, improving interoperability with older or restrictive client environments
