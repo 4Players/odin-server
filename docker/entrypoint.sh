@@ -38,9 +38,17 @@ else
         ${GRID_DATABASE_COMMAND_TIMEOUT:+command_timeout = ${GRID_DATABASE_COMMAND_TIMEOUT}}
       }
 
-      [database.report]
-      ${GRID_DATABASE_REPORT_INTERVAL:+interval = ${GRID_DATABASE_REPORT_INTERVAL}}
-      ${GRID_DATABASE_REPORT_TAGS:+tags = [ ${GRID_DATABASE_REPORT_TAGS} ]}
+      ${GRID_DATABASE_EXPORT_INTERVAL:+
+        [database.export]
+        interval = ${GRID_DATABASE_EXPORT_INTERVAL}
+        ${distinct_customer_precision:+distinct_customer_precision = [ ${GRID_DATABASE_EXPORT_DISTINCT_CUSTOMER_PRECISION} ]}
+      }
+
+      ${GRID_DATABASE_REPORT_INTERVAL:+
+        [database.report]
+        interval = ${GRID_DATABASE_REPORT_INTERVAL}
+        ${GRID_DATABASE_REPORT_TAGS:+tags = [ ${GRID_DATABASE_REPORT_TAGS} ]}
+      }
 
       [authorization]
       ${GRID_AUTHORIZATION_LEEWAY:+leeway = ${GRID_AUTHORIZATION_LEEWAY}}
@@ -48,7 +56,7 @@ else
       keys = [ ${GRID_AUTHORIZATION_KEYS} ]
 
       [quic]
-      binding = "0.0.0.0:4433"
+      binding = "0.0.0.0:${GRID_QUIC_PORT:-4433}"
       certificate_file = "${GRID_CERTIFICATE_FILE:-/data/fullchain.pem}"
       privatekey_file = "${GRID_PRIVATE_KEY_FILE:-/data/privkey.pem}"
       ${GRID_QUIC_NO_PEERS_TIMEOUT:+no_peers_timeout = ${GRID_QUIC_NO_PEERS_TIMEOUT}}
@@ -59,11 +67,12 @@ else
       ${GRID_QUIC_MIGRATION:+migration = ${GRID_QUIC_MIGRATION}}
 
       [http]
-      binding = "0.0.0.0:4433"
+      binding = "0.0.0.0:${GRID_HTTP_PORT:-4433}"
       certificate_file = "${GRID_CERTIFICATE_FILE:-/data/fullchain.pem}"
       privatekey_file = "${GRID_PRIVATE_KEY_FILE:-/data/privkey.pem}"
-      webrtc_binding = "0.0.0.0:8844"
+      webrtc_binding = "0.0.0.0:${GRID_HTTP_WEBRTC_PORT:-8844}"
       ${GRID_HTTP_WEBRTC_CANDIDATES:+webrtc_candidates = [ ${GRID_HTTP_WEBRTC_CANDIDATES} ]}
+      ${GRID_HTTP_WEBRTC_ENFORCE_TCP:+webrtc_enforce_tcp = ${GRID_HTTP_WEBRTC_ENFORCE_TCP}}
       ${GRID_HTTP_NO_PEERS_TIMEOUT:+no_peers_timeout = ${GRID_HTTP_NO_PEERS_TIMEOUT}}
       ${GRID_HTTP_PING_INTERVAL:+ping_interval = ${GRID_HTTP_PING_INTERVAL}}
       ${GRID_HTTP_TIMEOUT:+timeout = ${GRID_HTTP_TIMEOUT}}
@@ -72,6 +81,7 @@ else
         [http_client]
         address = \"${GRID_HTTP_CLIENT_ADDRESS}\"
         ${GRID_HTTP_CLIENT_ACCEPT_INVALID_CERTIFICATES:+accept_invalid_certificates = ${GRID_HTTP_CLIENT_ACCEPT_INVALID_CERTIFICATES}}
+        ${GRID_HTTP_CLIENT_ACCEPT_INVALID_HOSTNAMES:+accept_invalid_hostnames = ${GRID_HTTP_CLIENT_ACCEPT_INVALID_HOSTNAMES}}
       }
 
       [limit.peer]
@@ -80,7 +90,7 @@ else
       ${GRID_LIMIT_PEER_INCOMING_MESSAGES:+incoming_messages = ${GRID_LIMIT_PEER_INCOMING_MESSAGES}}
 
       [metrics]
-      binding = "0.0.0.0:9000"
+      binding = "0.0.0.0:${GRID_METRICS_PORT:-9000}"
       allowed = ["0.0.0.0/0"]
       global_labels = { deployment = "${GRID_DEPLOYMENT:-docker}", server = "${GRID_PUBLIC_ADDRESS}" }
       ${GRID_METRICS_SYSTEM_UPDATE_INTERVAL:+system_update_interval = ${GRID_METRICS_SYSTEM_UPDATE_INTERVAL}}
@@ -89,7 +99,7 @@ else
       [internal]
       log_rejected_api_calls = ${GRID_INTERNAL_LOG_REJECTED_API_CALLS:-false}
       ${GRID_INTERNAL_LOG_HANGING_API_CALLS:+log_hanging_api_calls = ${GRID_INTERNAL_LOG_HANGING_API_CALLS}}
-      bundle_events = 20
+      ${GRID_INTERNAL_BUNDLE_EVENTS:+bundle_events = ${GRID_INTERNAL_BUNDLE_EVENTS}}
 
 EOF
 fi

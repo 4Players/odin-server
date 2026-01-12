@@ -1,4 +1,4 @@
-# ODIN Server Docker Images
+# Grid Docker Images
 
 These Dockerfiles can be used build Docker images to launch the ODIN server in an isolated and lightweight environment, which includes all necessary dependencies.
 
@@ -28,6 +28,7 @@ The following environment variables are supported:
 
 #### QUIC Settings
 
+* `GRID_QUIC_PORT`
 * `GRID_QUIC_NO_PEERS_TIMEOUT`
 * `GRID_QUIC_KEEP_ALIVE_INTERVAL`
 * `GRID_QUIC_CONNECT_TIMEOUT`
@@ -37,7 +38,10 @@ The following environment variables are supported:
 
 #### HTTP Settings
 
+* `GRID_HTTP_PORT`
+* `GRID_HTTP_WEBRTC_PORT`
 * `GRID_HTTP_WEBRTC_CANDIDATES`
+* `GRID_HTTP_WEBRTC_ENFORCE_TCP`
 * `GRID_HTTP_NO_PEERS_TIMEOUT`
 * `GRID_HTTP_PING_INTERVAL`
 * `GRID_HTTP_TIMEOUT`
@@ -58,6 +62,8 @@ The following environment variables are supported:
 * `GRID_DATABASE_SERVER_ID`
 * `GRID_DATABASE_CONNECT_TIMEOUT`
 * `GRID_DATABASE_COMMAND_TIMEOUT`
+* `GRID_DATABASE_EXPORT_INTERVAL`
+* `GRID_DATABASE_EXPORT_DISTINCT_CUSTOMER_PRECISION`
 * `GRID_DATABASE_REPORT_INTERVAL`
 * `GRID_DATABASE_REPORT_TAGS`
 
@@ -69,6 +75,7 @@ The following environment variables are supported:
 
 #### Metrics Settings
 
+* `GRID_METRICS_PORT`
 * `GRID_METRICS_SYSTEM_UPDATE_INTERVAL`
 * `GRID_METRICS_IDLE_TIMEOUT`
 
@@ -76,8 +83,10 @@ The following environment variables are supported:
 
 * `GRID_HTTP_CLIENT_ADDRESS`
 * `GRID_HTTP_CLIENT_ACCEPT_INVALID_CERTIFICATES`
+* `GRID_HTTP_CLIENT_ACCEPT_INVALID_HOSTNAMES`
 
 #### Internal Settings
 
 * `GRID_INTERNAL_LOG_REJECTED_API_CALLS`
 * `GRID_INTERNAL_LOG_HANGING_API_CALLS`
+* `GRID_INTERNAL_BUNDLE_EVENTS`
