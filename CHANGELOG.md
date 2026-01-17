@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.15
+
+- Fixed mid re-association for outgoing video streams during WebRTC renegotiation for web clients
+
 ## 1.6.14
 
 - Updated internal [Redis](https://redis.io) client to the latest version
