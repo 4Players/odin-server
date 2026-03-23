@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.6.23
+
+- Improved codec negotiation and compatibility across browsers
+
+## 1.6.22
+
+- Fixed several issues that could cause retransmission storms and keyframe floods under certain network conditions
+- Adjusted default NACK buffer size for better packet loss recovery
+
+## 1.6.21
+
+- Added `webrtc_nack_buffer_log2` option to configure or disable the NACK responder buffer size
+
+## 1.6.20
+
+- Improved video forwarding performance and reduced memory usage per active video stream
+
+## 1.6.19
+
+- Fixed broadcast channel capacity issue that could cause message drops
+- Optimized video forwarding when no subscribers are active
+
+## 1.6.18
+
+- Fixed inaccurate video metrics
+
+## 1.6.17
+
+- Improved WebRTC renegotiation reliability and MID mapping observability
+- Fixed a race condition between track arrival and MID assignment
+
+## 1.6.16
+
+- Added latency protection to video RTP forwarding
+- Added per-customer billing metrics for video usage
+
 ## 1.6.15
 
 - Fixed mid re-association for outgoing video streams during WebRTC renegotiation for web clients
