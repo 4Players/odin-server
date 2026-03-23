@@ -2,7 +2,7 @@
 
 # ODIN Voice Server
 
-![v1.6.15](https://img.shields.io/badge/version-1.6.15-blue?style=for-the-badge)
+![v1.6.23](https://img.shields.io/badge/version-1.6.23-blue?style=for-the-badge)
 
 ODIN is a versatile cross-platform Software Development Kit (SDK) engineered to seamlessly integrate real-time voice chat into multiplayer games, applications, and websites. Regardless of whether you're employing a native application or your preferred web browser, ODIN simplifies the process of maintaining connections with your significant contacts. Through its intuitive interface and robust functionality, ODIN enhances interactive experiences, fostering real-time engagement and collaboration across various digital platforms.
 
@@ -326,6 +326,14 @@ Optionally force WebRTC to use only TCP transport candidates.
 
 ```toml
 webrtc_enforce_tcp = false
+```
+
+#### `webrtc_nack_buffer_log2`
+
+Size of the NACK responder buffer as a power of 2 (e.g. `9` = 512 packets). Set to `0` to disable NACK.
+
+```toml
+webrtc_nack_buffer_log2 = 9
 ```
 
 #### `timeout`
